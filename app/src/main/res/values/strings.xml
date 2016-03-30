@@ -1,3 +1,4 @@
 <resources>
     <string name="app_name">VehicleTracker</string>
+    <string name="home_text_one">Please enter time for alert</string>
 </resources>
