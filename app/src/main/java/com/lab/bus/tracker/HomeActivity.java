@@ -33,6 +33,7 @@ public class HomeActivity extends AppCompatActivity implements View.OnClickListe
     public void onClick(View v) {
         switch (v.getId()){
             case R.id.home_register_btn:
+
                 break;
 
             case R.id.home_tracking_btn:

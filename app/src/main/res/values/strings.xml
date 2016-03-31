@@ -1,4 +1,7 @@
 <resources>
     <string name="app_name">VehicleTracker</string>
     <string name="home_text_one">Please enter time for alert</string>
+
+    <!-- api keys-->
+    <string name="map_api_key">AIzaSyBs03PHXWnDLEoCJLaN31gy8UQwQU5hc4g</string>
 </resources>
