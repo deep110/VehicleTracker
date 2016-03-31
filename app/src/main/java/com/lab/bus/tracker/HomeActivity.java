@@ -1,7 +1,8 @@
 package com.lab.bus.tracker;
 
-import android.support.v7.app.AppCompatActivity;
+import android.content.Intent;
 import android.os.Bundle;
+import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
@@ -33,10 +34,11 @@ public class HomeActivity extends AppCompatActivity implements View.OnClickListe
     public void onClick(View v) {
         switch (v.getId()){
             case R.id.home_register_btn:
-
                 break;
 
             case R.id.home_tracking_btn:
+                Intent intent = new Intent(this,MapActivity.class);
+                startActivity(intent);
                 break;
         }
     }

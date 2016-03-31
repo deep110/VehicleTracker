@@ -18,7 +18,7 @@ import java.net.Socket;
 public class SocketClient {
 
     private String serverMessage;
-    public static final String SERVERIP = "Your IP Address"; //your computer IP address
+    public static final String SERVERIP = "Your IP Address";
     public static final int SERVERPORT = 4444;
     private OnMessageReceiveListener mMessageListener = null;
     private boolean mRun = false;
