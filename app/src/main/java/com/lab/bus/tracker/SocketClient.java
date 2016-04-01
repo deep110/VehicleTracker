@@ -17,14 +17,11 @@ import java.net.Socket;
 
 public class SocketClient {
 
-    private String serverMessage;
-    public static final String SERVERIP = "Your IP Address";
-    public static final int SERVERPORT = 4444;
+    public static final String SERVERIP = "172.25.36.48";
+    public static final int SERVERPORT = 12345;
     private OnMessageReceiveListener mMessageListener = null;
     private boolean mRun = false;
-
     private PrintWriter out;
-    private BufferedReader in;
 
 
     public SocketClient(OnMessageReceiveListener listener) {
@@ -49,35 +46,29 @@ public class SocketClient {
     public void run() {
 
         mRun = true;
+        String serverMessage;
 
         try {
-            //here you must put your computer's IP address.
+
             InetAddress serverAddr = InetAddress.getByName(SERVERIP);
-
-            Log.e("TCP Client", "C: Connecting...");
-
-            //create a socket to make the connection with the server
             Socket socket = new Socket(serverAddr, SERVERPORT);
 
             try {
-
                 //send the message to the server
                 out = new PrintWriter(new BufferedWriter(new OutputStreamWriter(socket.getOutputStream())), true);
 
                 Log.e("TCP Client", "C: Done.");
 
                 //receive the message which the server sends back
-                in = new BufferedReader(new InputStreamReader(socket.getInputStream()));
+                BufferedReader in = new BufferedReader(new InputStreamReader(socket.getInputStream()));
 
                 //in this while the client listens for the messages sent by the server
                 while (mRun) {
-                    serverMessage = in.readLine();
+                   serverMessage = in.readLine();
 
                     if (serverMessage != null && mMessageListener != null) {
                         mMessageListener.messageReceived(serverMessage);
                     }
-                    serverMessage = null;
-
                 }
 
             } catch (Exception e) {
@@ -85,8 +76,6 @@ public class SocketClient {
                 Log.e("TCP", "S: Error", e);
 
             } finally {
-                //the socket must be closed. It is not possible to reconnect to this socket
-                // after it is closed, which means a new socket instance has to be created.
                 socket.close();
             }
 
