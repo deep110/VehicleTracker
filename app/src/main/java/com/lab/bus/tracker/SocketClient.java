@@ -3,9 +3,7 @@ package com.lab.bus.tracker;
 import android.util.Log;
 
 import java.io.BufferedReader;
-import java.io.BufferedWriter;
 import java.io.InputStreamReader;
-import java.io.OutputStreamWriter;
 import java.io.PrintWriter;
 import java.net.InetAddress;
 import java.net.Socket;
@@ -17,7 +15,7 @@ import java.net.Socket;
 
 public class SocketClient {
 
-    public static final String SERVERIP = "172.25.36.48";
+    public static final String SERVERIP = "169.254.125.70";
     public static final int SERVERPORT = 12345;
     private OnMessageReceiveListener mMessageListener = null;
     private boolean mRun = false;
@@ -55,26 +53,20 @@ public class SocketClient {
 
             try {
                 //send the message to the server
-                out = new PrintWriter(new BufferedWriter(new OutputStreamWriter(socket.getOutputStream())), true);
-
+                //out = new PrintWriter(new BufferedWriter(new OutputStreamWriter(socket.getOutputStream())), true);
                 Log.e("TCP Client", "C: Done.");
-
-                //receive the message which the server sends back
                 BufferedReader in = new BufferedReader(new InputStreamReader(socket.getInputStream()));
 
                 //in this while the client listens for the messages sent by the server
                 while (mRun) {
                    serverMessage = in.readLine();
-
                     if (serverMessage != null && mMessageListener != null) {
                         mMessageListener.messageReceived(serverMessage);
                     }
                 }
 
             } catch (Exception e) {
-
                 Log.e("TCP", "S: Error", e);
-
             } finally {
                 socket.close();
             }

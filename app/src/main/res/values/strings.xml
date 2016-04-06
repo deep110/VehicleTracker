@@ -3,5 +3,5 @@
     <string name="home_text_one">Please enter time for alert</string>
 
     <!-- api keys-->
-    <string name="map_api_key">AIzaSyBs03PHXWnDLEoCJLaN31gy8UQwQU5hc4g</string>
+    <string name="google_maps_key">AIzaSyCOwta5hyeZsHuCEKHGdkGvs1AA8Z8CtKM</string>
 </resources>
