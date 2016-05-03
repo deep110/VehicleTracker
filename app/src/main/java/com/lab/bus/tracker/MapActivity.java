@@ -9,7 +9,6 @@ import android.util.Log;
 
 import com.google.android.gms.maps.model.LatLng;
 
-import butterknife.Bind;
 import butterknife.ButterKnife;
 
 /**
@@ -28,10 +27,11 @@ public class MapActivity extends AppCompatActivity implements SocketClient.OnMes
         setContentView(R.layout.activity_map);
         ButterKnife.bind(this);
 
-        client = new SocketClient(this);
-        new TcpTask().execute();
+       // client = new SocketClient(this);
+       // new TcpTask().execute();
 
         mapFragment = (MapFragment) getSupportFragmentManager().findFragmentById(R.id.map);
+
     }
 
     final Handler handler = new Handler() {
@@ -39,7 +39,7 @@ public class MapActivity extends AppCompatActivity implements SocketClient.OnMes
         public void handleMessage(Message msg) {
             String array[] = (msg.obj).toString().split(" ");
 
-            mapFragment.setLocation(new LatLng(Double.valueOf(array[0]),Double.valueOf(array[1])));
+           // mapFragment.setLocation(new LatLng(Double.valueOf(array[0]),Double.valueOf(array[1])));
         }
     };
 

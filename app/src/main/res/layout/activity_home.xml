@@ -49,4 +49,16 @@
         android:layout_below="@+id/linearLayout"
         android:layout_marginTop="88dp" />
 
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Register"
+        android:id="@+id/button"
+        android:layout_below="@+id/home_tracking_btn"
+        android:layout_alignRight="@+id/home_tracking_btn"
+        android:layout_alignEnd="@+id/home_tracking_btn"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:onClick="register" />
+
 </RelativeLayout>

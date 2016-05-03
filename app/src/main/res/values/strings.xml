@@ -1,7 +1,9 @@
 <resources>
     <string name="app_name">VehicleTracker</string>
     <string name="home_text_one">Please enter time for alert</string>
+    <string name="title_activity_signup">signup</string>
 
     <!-- api keys-->
-    <string name="google_maps_key">AIzaSyCOwta5hyeZsHuCEKHGdkGvs1AA8Z8CtKM</string>
+    <!--<string name="google_maps_key">AIzaSyCOwta5hyeZsHuCEKHGdkGvs1AA8Z8CtKM</string>-->
+
 </resources>

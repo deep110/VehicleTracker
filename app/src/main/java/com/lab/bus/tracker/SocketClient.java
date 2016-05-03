@@ -15,8 +15,8 @@ import java.net.Socket;
 
 public class SocketClient {
 
-    public static final String SERVERIP = "169.254.125.70";
-    public static final int SERVERPORT = 12345;
+    public static String SERVERIP = "192.168.137.15";
+    public static final int SERVERPORT = 12354;
     private OnMessageReceiveListener mMessageListener = null;
     private boolean mRun = false;
     private PrintWriter out;
@@ -24,6 +24,7 @@ public class SocketClient {
 
     public SocketClient(OnMessageReceiveListener listener) {
         mMessageListener = listener;
+      //  SERVERIP = serverIp;
     }
 
     /**
@@ -52,7 +53,6 @@ public class SocketClient {
             Socket socket = new Socket(serverAddr, SERVERPORT);
 
             try {
-                //send the message to the server
                 //out = new PrintWriter(new BufferedWriter(new OutputStreamWriter(socket.getOutputStream())), true);
                 Log.e("TCP Client", "C: Done.");
                 BufferedReader in = new BufferedReader(new InputStreamReader(socket.getInputStream()));

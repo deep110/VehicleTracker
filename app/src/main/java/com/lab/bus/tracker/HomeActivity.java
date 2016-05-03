@@ -42,4 +42,9 @@ public class HomeActivity extends AppCompatActivity implements View.OnClickListe
                 break;
         }
     }
+    public void register(View v){
+
+        Intent i = new Intent(this,signup.class);
+        startActivity(i);
+    }
 }
