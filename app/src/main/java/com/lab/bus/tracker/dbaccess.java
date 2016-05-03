@@ -14,7 +14,7 @@ public class dbaccess {
     public dbaccess(){
     }
 
-    public dbaccess(String id,String studentname,int enroll,String fname,String username,String password){
+    public dbaccess(String studentname,int enroll,String fname,String username,String password){
         this._studentname =studentname;
         this._enroll=enroll;
         this._fname = fname;

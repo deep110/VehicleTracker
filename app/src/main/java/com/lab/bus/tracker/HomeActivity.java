@@ -16,6 +16,8 @@ public class HomeActivity extends AppCompatActivity implements View.OnClickListe
 
     @Bind(R.id.home_register_btn)Button mTimeRegisterBtn;
 
+    @Bind(R.id.button)Button registerb;
+
     @Bind(R.id.home_tracking_btn)Button mTrackingBtn;
 
 

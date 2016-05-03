@@ -53,6 +53,26 @@ public class mydbhandler extends SQLiteOpenHelper {
     }
 
     public void dbadd(dbaccess register){
+        ContentValues content = new ContentValues();
 
+        content.put(COLUMN_STUDENTNAME,register.get_studentname());
+        content.put(COLUMN_ENROLL,register.get_enroll());
+        content.put(COLUMN_FNAME,register.get_fname());
+        content.put(COLUMN_USERNAME,register.get_username());
+        content.put(COLUMN_PASSWORD,register.get_password());
+
+        try {
+            long var = 0L;
+
+            SQLiteDatabase db = this.getWritableDatabase();
+
+            db.insert(TABLE_PRODUCTS, null, content);
+              Toast.makeText(getContext,"Your data has been recorded",Toast.LENGTH_LONG).show();
+            db.close();
+        }catch (Exception e){
+            //Log.e(String.valueOf(tas),"Problem is here");
+
+            Toast.makeText(getContext,"hello ",Toast.LENGTH_SHORT).show();
+        }
     }
 }
