@@ -75,4 +75,42 @@ public class mydbhandler extends SQLiteOpenHelper {
             Toast.makeText(getContext,"hello ",Toast.LENGTH_SHORT).show();
         }
     }
+
+    public ArrayList<dbaccess> dbtostring(){
+
+
+        ArrayList<dbaccess> dataList = new ArrayList<dbaccess>();
+        dbaccess register;
+
+        //  Toast.makeText(getContext, "Samasya hai", Toast.LENGTH_SHORT).show();
+        SQLiteDatabase db = this.getWritableDatabase();
+        String query = "SELECT * FROM " + TABLE_PRODUCTS;
+
+        Cursor cursor = db.rawQuery(query,null);
+
+        if (cursor.moveToFirst()){
+            do {
+                register = new dbaccess();
+                register.set_id(cursor.getInt(0));
+                register.set_studentname(cursor.getString(1));
+                register.set_enroll(cursor.getInt(2));
+                register.set_fname(cursor.getString(3));
+                register.set_username(cursor.getString(4));
+                register.set_password(cursor.getString(5));
+                dataList.add(register);
+            }while (cursor.moveToNext());
+        }
+        // Toast.makeText(getContext, dataList.size(), Toast.LENGTH_SHORT).show();
+//        Toast.makeText(getContext,"cursor tak", Toast.LENGTH_SHORT).show();
+//        Log.e(String.valueOf(tas), String.valueOf(dataList.size()));
+        cursor.close();
+        db.close();
+        if(dataList.size()<=0){
+            dataList = null;
+            // Toast.makeText(getContext,"zero size", Toast.LENGTH_SHORT).show();
+        }
+        //  Toast.makeText(getContext,String.valueOf(dataList.size()), Toast.LENGTH_SHORT).show();
+        //  Log.e(String.valueOf(tas), String.valueOf(dataList.get(1)));
+        return dataList;
+    }
 }

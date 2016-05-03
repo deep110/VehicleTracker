@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">VehicleTracker</string>
+    <string name="app_name">School Bus Tracker</string>
     <string name="home_text_one">Please enter time for alert</string>
     <string name="title_activity_signup">signup</string>
 
