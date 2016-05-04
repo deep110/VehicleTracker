@@ -6,6 +6,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.Toast;
 
 import butterknife.Bind;
 import butterknife.ButterKnife;
@@ -13,6 +14,7 @@ import butterknife.ButterKnife;
 public class HomeActivity extends AppCompatActivity implements View.OnClickListener{
 
     @Bind(R.id.home_time_text) EditText mTime;
+    @Bind(R.id.editText6 )EditText pass;
 
     @Bind(R.id.home_register_btn)Button mTimeRegisterBtn;
 
@@ -30,19 +32,27 @@ public class HomeActivity extends AppCompatActivity implements View.OnClickListe
 
         mTimeRegisterBtn.setOnClickListener(this);
         mTrackingBtn.setOnClickListener(this);
+        //mTime = (EditText)findViewById(R.id.editText6);
     }
 
     @Override
     public void onClick(View v) {
-        switch (v.getId()){
+        switch (v.getId()) {
             case R.id.home_register_btn:
                 break;
 
             case R.id.home_tracking_btn:
-                Intent intent = new Intent(this,MapActivity.class);
+                String userid = mTime.getText().toString();
+                String password = pass.getText().toString();
+                //if (userid=="admin" && password=="admin123"){
+                Intent intent = new Intent(this, MapActivity.class);
                 startActivity(intent);
-                break;
-        }
+
+        //else{
+        //  Toast.makeText(getApplicationContext(),"Login Credentials are wrong ",Toast.LENGTH_LONG).show();
+        //}
+        break;
+    }
     }
     public void register(View v){
 
